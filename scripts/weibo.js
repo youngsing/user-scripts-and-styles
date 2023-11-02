@@ -4,9 +4,9 @@
 // @description  A tool to help you download full size images from websites
 // @description:zh-CN  一个帮你从网站下载原始尺寸图片的工具
 // @namespace    https://huching.net/
-// @version     0.9.0
+// @version     0.10.0
 // @license     GPL-3.0
-// @icon        data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTA4IDUwOCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+IDxjaXJjbGUgc3R5bGU9ImZpbGw6I0ZGRDA1QjsiIGN4PSIyNTQiIGN5PSIyNTQiIHI9IjI1NCIvPiA8cGF0aCBzdHlsZT0iZmlsbDojRkZGRkZGOyIgZD0iTTM3Mi44LDE5NkgzNjhjLTIuNC00MC40LTM1LjYtNzIuNC03Ni40LTcyLjRjLTQsMC04LDAuNC0xMS42LDAuOGMtMTYtMjguNC00Ni00Ny42LTgwLjgtNDcuNiBjLTUxLjIsMC05Mi40LDQxLjYtOTIuNCw5Mi40YzAsMTAuOCwyLDIxLjIsNS4yLDMwLjhjLTI1LjIsMTAtNDIuOCwzNC00Mi44LDYyLjRjMCwzNi40LDI5LjYsNjYuNCw2Ni40LDY2LjRoMjM3LjIgYzM2LjQsMCw2Ni40LTI5LjYsNjYuNC02Ni40QzQzOC44LDIyNS42LDQwOS4yLDE5NiwzNzIuOCwxOTZ6Ii8+IDxwYXRoIHN0eWxlPSJmaWxsOiNGRjcwNTg7IiBkPSJNMzI1LjIsMzYyLjRsLTY2LjQsNjYuNGMtMi44LDIuOC03LjIsMi44LTEwLDBsLTY2LTY2LjRjLTQuNC00LjQtMS4yLTEyLDQuOC0xMmgxNC44IGM0LDAsNy4yLTMuMiw3LjItNy4ydi05NmMwLTQsMy4yLTcuMiw3LjItNy4yaDc0LjhjNCwwLDcuMiwzLjIsNy4yLDcuMnY5NmMwLDQsMy4yLDcuMiw3LjIsNy4yaDE0LjggQzMyNi40LDM1MC40LDMyOS42LDM1OCwzMjUuMiwzNjIuNHoiLz4gPC9zdmc+IA==
+// @icon        data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAulBMVEUAAADm8//m8v/p7f3m8//m8//m8//l9P/m9P/l8v/m8//m8v/m8v/n9P/m8//j9v/j/Pzm8//m8//n8//m8//m8v/o8v/m8v/m9//S3unZ5fDX5O/m8//d7fXT3+na5vHb5/PT3+vZ5fHX4u/X5e/U4OvV4ezm8//P2+bxVD/8b1j7bVbrwcLmkorq2uDuxMPe6vbV4u3p4ejwcGDo6vPk09jtycrXwMPwt7PcsbHzopnmnZboh3zxVUDGQB87AAAAJ3RSTlMAv2MM8tikinBO+Mu2dGgbCvnq5dWOTDwf/aDnsCr4eG3u18vBt7FjKVg4AAAB4ElEQVRYw6TSx27DMBBF0Uf13m1p4f1T7BTECZIg5f9/K/DKI0GFos6elwPMYI4dBr6nXMdxlecHoY1N8iyJOBAlWQ5NRRpzUpwW0GDVnFVbWHNsuKg5YkmnuEp1mNVW1FC1mGGV1FJamHSgtgMmnLjBae5/8xksbmRhoC25UdlC6CpuVsl7UDSgxP3SyP2qGxppTDcw3kRR01Bd4CalsRQ3MY3FAJBzhxxAxh0yAAl3SAA74g6RjZAD788jjyNXDoQIKH2fRy4PY2+UAvgUPs4zAemHgg+PwpdO4PeVdx4UhatG4O+zFwUFl9LLeuCp70XBhcPFwmXivSw4/7XXyQrCQBCE4QkxmyevScjiOoOtEBAPvv+LCXNLh/wtBOde33G6KgIgyDI/E3Yu8yjIIj8XMpd4FETnlZC43KMgKq+F3BUeBVF5LRSu9CiIymuhdJVHQVReC5VL9yiIymshjR8KCIL5cIxfGgmC+dDET5UEwXzo4rdOgmC+xcMSBaF8aKzT9rgL5evUPK7v5+sTVt/th/M+hfXXH7Bg2MKAFccWWixZtlB3WPNsYcSiaQtXrLq2cMaybQsnrPu2cMHBYQsNTR5bqAcaXbbQdsbsY6EftwzPqW42Tt/0D+N78/z/AjGD6r7utJrFAAAAAElFTkSuQmCC
 // @author      huc < ht@live.se >
 // @supportURL  https://github.com/hz2/user-scripts-and-styles/issues/new
 // @require https://greasyfork.org/scripts/396752-hx-script-library/code/hx-script-library.js
@@ -33,25 +33,27 @@
 // const debugLog = console.log
 const debugLog = () => {}
 
+const iconData =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAulBMVEUAAADm8//m8v/p7f3m8//m8//m8//l9P/m9P/l8v/m8//m8v/m8v/n9P/m8//j9v/j/Pzm8//m8//n8//m8//m8v/o8v/m8v/m9//S3unZ5fDX5O/m8//d7fXT3+na5vHb5/PT3+vZ5fHX4u/X5e/U4OvV4ezm8//P2+bxVD/8b1j7bVbrwcLmkorq2uDuxMPe6vbV4u3p4ejwcGDo6vPk09jtycrXwMPwt7PcsbHzopnmnZboh3zxVUDGQB87AAAAJ3RSTlMAv2MM8tikinBO+Mu2dGgbCvnq5dWOTDwf/aDnsCr4eG3u18vBt7FjKVg4AAAB4ElEQVRYw6TSx27DMBBF0Uf13m1p4f1T7BTECZIg5f9/K/DKI0GFos6elwPMYI4dBr6nXMdxlecHoY1N8iyJOBAlWQ5NRRpzUpwW0GDVnFVbWHNsuKg5YkmnuEp1mNVW1FC1mGGV1FJamHSgtgMmnLjBae5/8xksbmRhoC25UdlC6CpuVsl7UDSgxP3SyP2qGxppTDcw3kRR01Bd4CalsRQ3MY3FAJBzhxxAxh0yAAl3SAA74g6RjZAD788jjyNXDoQIKH2fRy4PY2+UAvgUPs4zAemHgg+PwpdO4PeVdx4UhatG4O+zFwUFl9LLeuCp70XBhcPFwmXivSw4/7XXyQrCQBCE4QkxmyevScjiOoOtEBAPvv+LCXNLh/wtBOde33G6KgIgyDI/E3Yu8yjIIj8XMpd4FETnlZC43KMgKq+F3BUeBVF5LRSu9CiIymuhdJVHQVReC5VL9yiIymshjR8KCIL5cIxfGgmC+dDET5UEwXzo4rdOgmC+xcMSBaF8aKzT9rgL5evUPK7v5+sTVt/th/M+hfXXH7Bg2MKAFccWWixZtlB3WPNsYcSiaQtXrLq2cMaybQsnrPu2cMHBYQsNTR5bqAcaXbbQdsbsY6EftwzPqW42Tt/0D+N78/z/AjGD6r7utJrFAAAAAElFTkSuQmCC'
+
 const head = document.getElementsByTagName('head')
 head[0].insertAdjacentHTML(
   'beforeend',
   `<style type="text/css">
 .hx-download-original-livephotos-tool{
   position: absolute;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTA4IDUwOCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+IDxjaXJjbGUgc3R5bGU9ImZpbGw6I0ZGRDA1QjsiIGN4PSIyNTQiIGN5PSIyNTQiIHI9IjI1NCIvPiA8cGF0aCBzdHlsZT0iZmlsbDojRkZGRkZGOyIgZD0iTTM3Mi44LDE5NkgzNjhjLTIuNC00MC40LTM1LjYtNzIuNC03Ni40LTcyLjRjLTQsMC04LDAuNC0xMS42LDAuOGMtMTYtMjguNC00Ni00Ny42LTgwLjgtNDcuNiBjLTUxLjIsMC05Mi40LDQxLjYtOTIuNCw5Mi40YzAsMTAuOCwyLDIxLjIsNS4yLDMwLjhjLTI1LjIsMTAtNDIuOCwzNC00Mi44LDYyLjRjMCwzNi40LDI5LjYsNjYuNCw2Ni40LDY2LjRoMjM3LjIgYzM2LjQsMCw2Ni40LTI5LjYsNjYuNC02Ni40QzQzOC44LDIyNS42LDQwOS4yLDE5NiwzNzIuOCwxOTZ6Ii8+IDxwYXRoIHN0eWxlPSJmaWxsOiNGRjcwNTg7IiBkPSJNMzI1LjIsMzYyLjRsLTY2LjQsNjYuNGMtMi44LDIuOC03LjIsMi44LTEwLDBsLTY2LTY2LjRjLTQuNC00LjQtMS4yLTEyLDQuOC0xMmgxNC44IGM0LDAsNy4yLTMuMiw3LjItNy4ydi05NmMwLTQsMy4yLTcuMiw3LjItNy4yaDc0LjhjNCwwLDcuMiwzLjIsNy4yLDcuMnY5NmMwLDQsMy4yLDcuMiw3LjIsNy4yaDE0LjggQzMyNi40LDM1MC40LDMyOS42LDM1OCwzMjUuMiwzNjIuNHoiLz4gPC9zdmc+IA==);
+  background-image: url(${iconData});
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   opacity: .5;
-  transform: scale(.75);
   transition: all cubic-bezier(0.18, 0.89, 0.32, 1.28) 250ms;
 }
 .hx-download-original-livephotos-tool.white{
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9ImluaGVyaXQiIGltcGxpY2l0LWNvbnNlbnQtc291cmNlPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIDxnIHRyYW5zZm9ybT0ibWF0cml4KDEuMDEyMiAwIDAgMS4wMTIyIC0yOC42ODQgLTMuNDMzOSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjMiPgogIDxjaXJjbGUgY3g9IjQwLjE5NCIgY3k9IjE1LjI0OCIgcj0iOC45ODI0Ii8+CiAgPHBhdGggZD0ibTQ1IDE3LTQuNTMzIDMuNTQ3Yy0wLjE2NjU5IDAuMTMwMzUtMC4zODQ2MSAwLjE0OTU3LTAuNTM0MTggMGwtNC41NjY0LTMuNTQ3Yy0wLjIzNTA0LTAuMjM1MDQtMC4wNjQxLTAuNjQxMDIgMC4yNTY0MS0wLjY0MTAyaDIuNDM2MmMwLjIxMzY3IDAgMC4zODQ2MS0wLjE3MDk0IDAuMzg0NjEtMC4zODQ2MXYtNS43MzI5YzAtMC4yMTM2NyAwLjE3MDk0LTAuMzg0NjEgMC4zODQ2MS0wLjM4NDYxaDIuNzAzNmMwLjIxMzY3IDAgMC4zODQ2MSAwLjE3MDk0IDAuMzg0NjEgMC4zODQ2MXY1LjczMjljMCAwLjIxMzY3IDAuMTcwOTQgMC4zODQ2MSAwLjM4NDYxIDAuMzg0NjFoMi40NjM5YzAuMjk5MTQgMCAwLjQ5NjgyIDAuNDM2MTggMC4yMzUwNCAwLjY0MTAyeiIvPgogPC9nPgo8L3N2Zz4K);
-  width: 24px;
-  height: 24px;
+  background-image: url(${iconData});
+  width: 36px;
+  height: 36px;
 }
 .hx-download-original-livephotos-tool:hover {
   opacity:1;
@@ -127,7 +129,7 @@ const createDom = (cfg) => {
     let domDL = dom || document.createElement('a')
     Object.assign(domDL, {
       title: title || '下载原始图片',
-      className: 'hx-download-original-images-tool ' + className,
+      className: 'hx-download-original-livephotos-tool ' + className,
       style: style,
       href: link,
     })
@@ -147,7 +149,7 @@ const createDom = (cfg) => {
   // if (['afterEnd', 'beforeBegin'].includes(postion)) {
   //   parent2 = target.parentElement.parentElement
   // }
-  const exist = parent2.querySelector('.hx-download-original-images-tool')
+  const exist = parent2.querySelector('.hx-download-original-livephotos-tool')
   if (exist) {
     genDomDL(exist)
   } else {
@@ -162,45 +164,72 @@ const init = () => {
 
       if (target.tagName == 'IMG' && isWeiboNode(parent)) {
         handleWeiboLivePhotos(target)
+      } else if (target.tagName == 'VIDEO' && isWeiboNode(parent)) {
+        //适用于新版微博
+
+        const link = target.src
+        const downloadBtn = findChildByClassName(
+          parent.parentElement,
+          'hx-download-original-livephotos-tool'
+        )
+
+        if (downloadBtn) {
+          updateVideoLink(downloadBtn, link)
+        } else {
+          const style = 'top: 4px;left: 4px;'
+          const cfg = { parent, link, style }
+          createVideoDom(cfg)
+        }
       }
-      //适用于新版微博？忘记了。。。
-      // else if (target.tagName == 'VIDEO' && isWeiboNode(parent)) {
-      //   const link = target.src
-      //   const downloadBtn = findChildByClassName(
-      //     parent.parentElement,
-      //     'hx-download-original-livephotos-tool'
-      //   )
-      //   if (downloadBtn) {
-      //     updateVideoLink(downloadBtn, link)
-      //   } else {
-      //     const style = 'top: 120px;right: 10px;'
-      //     const cfg = {
-      //       parent,
-      //       link,
-      //       style,
-      //     }
-      //     createVideoDom(cfg)
-      //   }
-      // }
     })
   } else if (hostname === 'www.douyin.com') {
     window.addEventListener('mouseover', ({ target }) => {
       if (target.tagName === 'VIDEO') {
         const src = (target.querySelector('source') || target.querySelector('video')).src
-        let style = 'right: 30px;top: 45px;'
+
+        let name = lastItem(
+          src
+            .split('?')[0]
+            .split('/')
+            .filter((x) => x)
+        )
+
+        let nickname = ''
+        let videoDesc = ''
+        const parent = target.parentElement?.parentElement
+        if (parent) {
+          nickname = parent.querySelector('[data-e2e="feed-video-nickname"]')?.textContent
+          if (nickname && nickname.startsWith('@')) {
+            nickname = nickname.slice(1)
+          }
+
+          videoDesc = parent.querySelector('[data-e2e="video-desc"]')?.textContent
+          if (videoDesc && videoDesc.startsWith('展开')) {
+            videoDesc = videoDesc.slice(2)
+          }
+
+          if (nickname && videoDesc) {
+            name = nickname + '_' + videoDesc
+          } else if (nickname) {
+            name = nickname + '_' + name
+          }
+
+          const vidEl = parent.querySelector('div[data-e2e-aweme-id]')
+          if (vidEl) {
+            const vid = vidEl.getAttribute('data-e2e-aweme-id')
+            if (vid) {
+              name += '_' + vid
+            }
+          }
+        }
 
         const cfg = {
           link: src,
-          style,
+          style: 'right: 59px;top: 35px;',
           title: '下载视频',
           target,
           postion: 'beforeEnd',
-          name: lastItem(
-            src
-              .split('?')[0]
-              .split('/')
-              .filter((x) => x)
-          ),
+          name,
         }
         createDom(cfg)
       }
